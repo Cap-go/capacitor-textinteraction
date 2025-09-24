@@ -77,3 +77,7 @@ iOS only.
 | **`enabled`** | <code>boolean</code> | Whether text interaction should be enabled or disabled. Disabling hides the magnifier lens reintroduced with iOS 15. |
 
 </docgen-api>
+
+### Credits 
+
+This plugin was inspired by the work of https://github.com/astrocreep/capacitor-plugins/tree/main/packages/textinteraction
