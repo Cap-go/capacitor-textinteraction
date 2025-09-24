@@ -10,14 +10,18 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "TextInteractionPlugin"
     public let jsName = "TextInteraction"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "toggle", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = TextInteraction()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    @objc func toggle(_ call: CAPPluginCall) {
+        let enabled = call.getBool("enabled") ?? false
+
+        DispatchQueue.main.async {
+            let success = self.implementation.toggle(enabled, webView: self.bridge?.webView)
+            call.resolve([
+                "success": success
+            ])
+        }
     }
 }

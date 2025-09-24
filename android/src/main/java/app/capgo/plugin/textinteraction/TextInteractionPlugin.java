@@ -12,11 +12,11 @@ public class TextInteractionPlugin extends Plugin {
     private TextInteraction implementation = new TextInteraction();
 
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+    public void toggle(PluginCall call) {
+        boolean enabled = call.getBoolean("enabled", false);
 
         JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
+        ret.put("success", implementation.toggle(enabled));
         call.resolve(ret);
     }
 }

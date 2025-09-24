@@ -1,6 +1,6 @@
 {
   "name": "@capgo/capacitor-textinteraction",
-  "version": "0.0.1",
+  "version": "7.0.0",
   "description": "Toggle text interaction in Capacitor based iOS apps.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -27,7 +27,11 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "ios",
+    "text",
+    "interaction",
+    "keyboard"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",

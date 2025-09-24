@@ -1,15 +1,25 @@
 import XCTest
+import WebKit
 @testable import TextInteractionPlugin
 
 class TextInteractionTests: XCTestCase {
-    func testEcho() {
-        // This is an example of a functional test case for a plugin.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testToggleEnablesTextInteraction() {
+        guard #available(iOS 14.5, *) else {
+            return
+        }
 
-        let implementation = TextInteraction()
-        let value = "Hello, World!"
-        let result = implementation.echo(value)
+        let expectation = expectation(description: "Text interaction toggled")
 
-        XCTAssertEqual(value, result)
+        DispatchQueue.main.async {
+            let implementation = TextInteraction()
+            let webView = WKWebView()
+            let success = implementation.toggle(true, webView: webView)
+
+            XCTAssertTrue(success)
+            XCTAssertTrue(webView.configuration.preferences.isTextInteractionEnabled)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 1.0)
     }
 }
