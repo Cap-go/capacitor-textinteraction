@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.0.8](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.7...7.0.8) (2025-10-15)
+
+
+### Bug Fixes
+
+* lock and lint ([6fe08b7](https://github.com/Cap-go/capacitor-textinteraction/commit/6fe08b7ef48fc4d512e1d705326d5c879515c403))
+
 ## [7.0.7](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.6...7.0.7) (2025-10-15)
 
 
