@@ -69,6 +69,10 @@ iOS only.
 | ------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
 | **`success`** | <code>boolean</code> | `true` when the platform supports toggling text interaction (iOS &gt;= 14.5), otherwise `false`. |
 
+| Method               | Signature                                    | Description                             |
+| -------------------- | -------------------------------------------- | --------------------------------------- |
+| **getPluginVersion** | () =&gt; Promise&lt;{ version: string; }&gt; | Get the native Capacitor plugin version |
+
 
 #### TextInteractionOptions
 

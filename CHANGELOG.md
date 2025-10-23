@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.0](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.9...7.1.0) (2025-10-23)
+
+
+### Features
+
+* add getPluginVersion method to TextInteraction plugin and update workflows for changelog generation ([80c4682](https://github.com/Cap-go/capacitor-textinteraction/commit/80c46827565c0cfd43518d5cac9a87a3dd6f9ed8))
+
+
+### Bug Fixes
+
+* remove unnecessary content field from Discord release webhook ([5635285](https://github.com/Cap-go/capacitor-textinteraction/commit/5635285c6990a8c058421af82b02fe7afa427cf7))
+
 ## [7.0.9](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.8...7.0.9) (2025-10-16)
 
 ## [7.0.8](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.7...7.0.8) (2025-10-15)
