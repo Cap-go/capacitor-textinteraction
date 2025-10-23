@@ -31,6 +31,7 @@ await TextInteraction.toggle({ enabled: true });
 <docgen-index>
 
 * [`toggle(...)`](#toggle)
+* [`getPluginVersion()`](#getpluginversion)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -56,6 +57,19 @@ iOS only.
 | **`options`** | <code><a href="#textinteractionoptions">TextInteractionOptions</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#textinteractionresult">TextInteractionResult</a>&gt;</code>
+
+--------------------
+
+
+### getPluginVersion()
+
+```typescript
+getPluginVersion() => Promise<{ version: string; }>
+```
+
+Get the native Capacitor plugin version
+
+**Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
 
 --------------------
 
