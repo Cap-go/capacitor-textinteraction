@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.1](https://github.com/Cap-go/capacitor-textinteraction/compare/7.1.0...7.1.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* update Discord release webhook username to include repository name ([613f37c](https://github.com/Cap-go/capacitor-textinteraction/commit/613f37c038559209aec332d360ccc6f172c3dce3))
+
 ## [7.1.0](https://github.com/Cap-go/capacitor-textinteraction/compare/7.0.9...7.1.0) (2025-10-23)
 
 
