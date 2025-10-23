@@ -6,4 +6,8 @@ export class TextInteractionWeb extends WebPlugin implements TextInteractionPlug
   async toggle(_options: TextInteractionOptions): Promise<TextInteractionResult> {
     throw this.unimplemented('TextInteraction.toggle is not available on web');
   }
+
+  async getPluginVersion(): Promise<{ version: string }> {
+    return { version: 'web' };
+  }
 }

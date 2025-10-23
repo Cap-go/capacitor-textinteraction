@@ -9,6 +9,8 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "TextInteraction")
 public class TextInteractionPlugin extends Plugin {
 
+    private final String PLUGIN_VERSION = "";
+
     private TextInteraction implementation = new TextInteraction();
 
     @PluginMethod
@@ -18,5 +20,16 @@ public class TextInteractionPlugin extends Plugin {
         JSObject ret = new JSObject();
         ret.put("success", implementation.toggle(enabled));
         call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void getPluginVersion(final PluginCall call) {
+        try {
+            final JSObject ret = new JSObject();
+            ret.put("version", this.PLUGIN_VERSION);
+            call.resolve(ret);
+        } catch (final Exception e) {
+            call.reject("Could not get plugin version", e);
+        }
     }
 }

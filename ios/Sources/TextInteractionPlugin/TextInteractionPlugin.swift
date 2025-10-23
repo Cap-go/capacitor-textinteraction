@@ -7,10 +7,12 @@ import Capacitor
  */
 @objc(TextInteractionPlugin)
 public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
+    private let PLUGIN_VERSION: String = ""
     public let identifier = "TextInteractionPlugin"
     public let jsName = "TextInteraction"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "toggle", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "toggle", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = TextInteraction()
 
@@ -24,4 +26,9 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
             ])
         }
     }
+
+    @objc func getPluginVersion(_ call: CAPPluginCall) {
+        call.resolve(["version": self.PLUGIN_VERSION])
+    }
+
 }
