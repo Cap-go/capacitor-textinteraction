@@ -9,7 +9,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "TextInteraction")
 public class TextInteractionPlugin extends Plugin {
 
-    private final String PLUGIN_VERSION = "7.1.3";
+    private final String PLUGIN_VERSION = "7.1.4";
 
     private TextInteraction implementation = new TextInteraction();
 
