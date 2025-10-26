@@ -7,6 +7,10 @@
 </div>
 Toggle text interaction in Capacitor based iOS apps.
 
+## Documentation
+
+The most complete doc is available here: https://capgo.app/docs/plugins/textinteraction/
+
 ## Install
 
 ```bash
