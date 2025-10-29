@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.1.6](https://github.com/Cap-go/capacitor-textinteraction/compare/7.1.5...7.1.6) (2025-10-29)
+
+
+### Bug Fixes
+
+* CI/CD config ([5d72152](https://github.com/Cap-go/capacitor-textinteraction/commit/5d7215261ebfb5ef586ef48ecfe719816556a554))
+* model github action ([2c98d94](https://github.com/Cap-go/capacitor-textinteraction/commit/2c98d943fecacef72aefe23381934b7ab0891944))
+* update github action ([53c9372](https://github.com/Cap-go/capacitor-textinteraction/commit/53c937284ee713504d8f50c403378e1b508afc09))
+
 ## [7.1.5](https://github.com/Cap-go/capacitor-textinteraction/compare/7.1.4...7.1.5) (2025-10-27)
 
 
