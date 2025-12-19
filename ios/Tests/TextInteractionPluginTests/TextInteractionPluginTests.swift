@@ -4,10 +4,6 @@ import WebKit
 
 class TextInteractionTests: XCTestCase {
     func testToggleEnablesTextInteraction() {
-        guard #available(iOS 14.5, *) else {
-            return
-        }
-
         let expectation = expectation(description: "Text interaction toggled")
 
         DispatchQueue.main.async {
