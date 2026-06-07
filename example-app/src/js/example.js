@@ -1,3 +1,5 @@
+import { CapacitorUpdater } from '@capgo/capacitor-updater';
+import { Capacitor } from '@capacitor/core';
 import { TextInteraction } from '@capgo/capacitor-textinteraction';
 
 const enableButton = document.getElementById('enableButton');
@@ -37,3 +39,9 @@ const applyToggle = async (enabled) => {
 enableButton?.addEventListener('click', () => applyToggle(true));
 disableButton?.addEventListener('click', () => applyToggle(false));
 toggleButton?.addEventListener('click', () => applyToggle(!interactionEnabled));
+
+if (Capacitor.isNativePlatform()) {
+  CapacitorUpdater.notifyAppReady().catch((error) => {
+    console.error('Capgo notifyAppReady failed', error);
+  });
+}
