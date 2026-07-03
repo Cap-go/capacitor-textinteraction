@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.textinteraction',
-  appName: 'Text Interaction Example',
+  appName: '@capgo/capacitor-textinteraction',
   webDir: 'dist',
   plugins: {
     SplashScreen: {
