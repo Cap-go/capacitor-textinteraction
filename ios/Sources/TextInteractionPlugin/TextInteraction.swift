@@ -2,13 +2,24 @@ import Foundation
 import WebKit
 
 @objc public class TextInteraction: NSObject {
-    @objc public func toggle(_ enabled: Bool, webView: WKWebView?) -> Bool {
+    private var enabled: Bool = true
+
+    @objc public func isEnabled() -> Bool {
+        return enabled
+    }
+
+    @objc public func setEnabled(_ enabled: Bool, webView: WKWebView?) -> Bool {
+        self.enabled = enabled
+
         guard let webView else {
             return false
         }
 
-        // Ensure text interaction matches the requested state.
         webView.configuration.preferences.isTextInteractionEnabled = enabled
         return true
+    }
+
+    @objc public func toggle(_ enabled: Bool, webView: WKWebView?) -> Bool {
+        return setEnabled(enabled, webView: webView)
     }
 }

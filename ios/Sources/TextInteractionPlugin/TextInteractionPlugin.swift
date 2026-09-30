@@ -12,11 +12,30 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
     public let jsName = "TextInteraction"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "toggle", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "isEnabled", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "getPluginVersion", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = TextInteraction()
+    private var locked = false
+
+    private static let lockedError = "TextInteraction state is locked by config (plugins.TextInteraction.locked)"
+
+    @objc override public func load() {
+        locked = getConfig().getBoolean("locked", false)
+        let enabled = getConfig().getBoolean("enabled", true)
+        _ = implementation.setEnabled(enabled, webView: nil)
+
+        DispatchQueue.main.async {
+            _ = self.implementation.setEnabled(self.implementation.isEnabled(), webView: self.bridge?.webView)
+        }
+    }
 
     @objc func toggle(_ call: CAPPluginCall) {
+        if locked {
+            call.reject(TextInteractionPlugin.lockedError)
+            return
+        }
+
         let enabled = call.getBool("enabled") ?? false
 
         DispatchQueue.main.async {
@@ -25,6 +44,12 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
                 "success": success
             ])
         }
+    }
+
+    @objc func isEnabled(_ call: CAPPluginCall) {
+        call.resolve([
+            "enabled": implementation.isEnabled()
+        ])
     }
 
     @objc func getPluginVersion(_ call: CAPPluginCall) {

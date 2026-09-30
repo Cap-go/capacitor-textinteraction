@@ -3,6 +3,14 @@ import WebKit
 @testable import TextInteractionPlugin
 
 class TextInteractionTests: XCTestCase {
+    func testIsEnabledReflectsState() {
+        let implementation = TextInteraction()
+        XCTAssertTrue(implementation.isEnabled())
+
+        _ = implementation.setEnabled(false, webView: nil)
+        XCTAssertFalse(implementation.isEnabled())
+    }
+
     func testToggleEnablesTextInteraction() {
         let expectation = expectation(description: "Text interaction toggled")
 

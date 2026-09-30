@@ -10,6 +10,10 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchAutoHide: false,
     },
+    TextInteraction: {
+      enabled: true,
+      locked: false,
+    },
     CapacitorUpdater: {
       appId: 'app.capgo.textinteraction',
       autoUpdate: true,

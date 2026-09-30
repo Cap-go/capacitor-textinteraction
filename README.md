@@ -48,6 +48,8 @@ npx cap sync
 ```ts
 import { TextInteraction } from '@capgo/capacitor-textinteraction';
 
+const { enabled } = await TextInteraction.isEnabled();
+
 // Disable the iOS magnifier lens while the WebView is visible
 await TextInteraction.toggle({ enabled: false });
 
@@ -55,11 +57,34 @@ await TextInteraction.toggle({ enabled: false });
 await TextInteraction.toggle({ enabled: true });
 ```
 
+### Configuration
+
+Set defaults in `capacitor.config.ts`:
+
+```ts
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  plugins: {
+    TextInteraction: {
+      enabled: true,
+      locked: false,
+    },
+  },
+};
+
+export default config;
+```
+
+- `enabled` (default `true`): when `false`, text interaction starts disabled on app launch.
+- `locked` (default `false`): when `true`, `toggle()` rejects at runtime; use `isEnabled()` to read the current state.
+
 ## API
 
 <docgen-index>
 
 * [`toggle(...)`](#toggle)
+* [`isEnabled()`](#isenabled)
 * [`getPluginVersion()`](#getpluginversion)
 * [Interfaces](#interfaces)
 
@@ -90,6 +115,21 @@ iOS only.
 --------------------
 
 
+### isEnabled()
+
+```typescript
+isEnabled() => Promise<TextInteractionEnabledResult>
+```
+
+Returns whether text interaction is currently enabled.
+
+**Returns:** <code>Promise&lt;<a href="#textinteractionenabledresult">TextInteractionEnabledResult</a>&gt;</code>
+
+**Since:** 8.0.41
+
+--------------------
+
+
 ### getPluginVersion()
 
 ```typescript
@@ -112,16 +152,19 @@ Get the native Capacitor plugin version
 | ------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
 | **`success`** | <code>boolean</code> | `true` when the platform supports toggling text interaction (iOS &gt;= 14.5), otherwise `false`. |
 
-| Method               | Signature                                    | Description                             |
-| -------------------- | -------------------------------------------- | --------------------------------------- |
-| **getPluginVersion** | () =&gt; Promise&lt;{ version: string; }&gt; | Get the native Capacitor plugin version |
-
 
 #### TextInteractionOptions
 
 | Prop          | Type                 | Description                                                                                                          |
 | ------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | **`enabled`** | <code>boolean</code> | Whether text interaction should be enabled or disabled. Disabling hides the magnifier lens reintroduced with iOS 15. |
+
+
+#### TextInteractionEnabledResult
+
+| Prop          | Type                 | Description                                    |
+| ------------- | -------------------- | ---------------------------------------------- |
+| **`enabled`** | <code>boolean</code> | Whether text interaction is currently enabled. |
 
 </docgen-api>
 
