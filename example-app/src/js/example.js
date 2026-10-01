@@ -64,11 +64,12 @@ const applyToggle = async (enabled) => {
     interactionEnabled = enabled;
     setStatus(`Interaction ${enabled ? 'enabled' : 'disabled'}. Success: ${result.success}`);
     setResult(result);
-    await refreshEnabledState();
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     setStatus(`Toggle failed: ${message}`);
     setResult({ error: message });
+  } finally {
+    await refreshEnabledState();
   }
 };
 

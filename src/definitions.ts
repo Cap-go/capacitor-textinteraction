@@ -47,6 +47,10 @@ export interface TextInteractionPlugin {
   /**
    * Returns whether text interaction is currently enabled.
    *
+   * On iOS this reflects the WebView preference. On Android and web, toggling text
+   * interaction is not supported; the value reflects the plugin configuration state
+   * (`plugins.TextInteraction.enabled` at startup) rather than a platform change.
+   *
    * @since 8.0.41
    */
   isEnabled(): Promise<TextInteractionEnabledResult>;

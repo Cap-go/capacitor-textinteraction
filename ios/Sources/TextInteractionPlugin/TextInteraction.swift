@@ -4,7 +4,10 @@ import WebKit
 @objc public class TextInteraction: NSObject {
     private var enabled: Bool = true
 
-    @objc public func isEnabled() -> Bool {
+    @objc public func isEnabled(webView: WKWebView?) -> Bool {
+        if let webView {
+            return webView.configuration.preferences.isTextInteractionEnabled
+        }
         return enabled
     }
 

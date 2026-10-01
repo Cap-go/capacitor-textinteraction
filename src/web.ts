@@ -23,11 +23,10 @@ export class TextInteractionWeb extends WebPlugin implements TextInteractionPlug
     return { enabled: this.enabled };
   }
 
-  async toggle(options: TextInteractionOptions): Promise<TextInteractionResult> {
+  async toggle(_options: TextInteractionOptions): Promise<TextInteractionResult> {
     if (this.locked) {
       throw new CapacitorException(TEXT_INTERACTION_LOCKED_ERROR);
     }
-    this.enabled = options.enabled;
     throw this.unimplemented('TextInteraction.toggle is not available on web');
   }
 

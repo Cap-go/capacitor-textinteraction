@@ -123,6 +123,10 @@ isEnabled() => Promise<TextInteractionEnabledResult>
 
 Returns whether text interaction is currently enabled.
 
+On iOS this reflects the WebView preference. On Android and web, toggling text
+interaction is not supported; the value reflects the plugin configuration state
+(`plugins.TextInteraction.enabled` at startup) rather than a platform change.
+
 **Returns:** <code>Promise&lt;<a href="#textinteractionenabledresult">TextInteractionEnabledResult</a>&gt;</code>
 
 **Since:** 8.0.41

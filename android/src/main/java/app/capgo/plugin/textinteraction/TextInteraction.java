@@ -15,7 +15,6 @@ public class TextInteraction {
     }
 
     public boolean toggle(boolean enabled) {
-        this.enabled = enabled;
         Logger.info("TextInteraction", "toggle called on Android with enabled=" + enabled + ". This platform is not supported.");
         return false;
     }

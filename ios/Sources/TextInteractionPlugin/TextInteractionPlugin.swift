@@ -26,7 +26,7 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
         _ = implementation.setEnabled(enabled, webView: nil)
 
         DispatchQueue.main.async {
-            _ = self.implementation.setEnabled(self.implementation.isEnabled(), webView: self.bridge?.webView)
+            _ = self.implementation.setEnabled(self.implementation.isEnabled(webView: nil), webView: self.bridge?.webView)
         }
     }
 
@@ -47,9 +47,11 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
     }
 
     @objc func isEnabled(_ call: CAPPluginCall) {
-        call.resolve([
-            "enabled": implementation.isEnabled()
-        ])
+        DispatchQueue.main.async {
+            call.resolve([
+                "enabled": self.implementation.isEnabled(webView: self.bridge?.webView)
+            ])
+        }
     }
 
     @objc func getPluginVersion(_ call: CAPPluginCall) {

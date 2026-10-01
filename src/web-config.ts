@@ -17,9 +17,13 @@ export function readTextInteractionWebConfig(): TextInteractionPluginConfig {
   const globalConfig = globalThis as typeof globalThis & {
     CAPACITOR_CONFIG?: CapacitorConfigShape;
     __capacitorConfig?: CapacitorConfigShape;
+    Capacitor?: {
+      config?: CapacitorConfigShape;
+    };
   };
 
   return (
+    globalConfig.Capacitor?.config?.plugins?.TextInteraction ??
     globalConfig.CAPACITOR_CONFIG?.plugins?.TextInteraction ??
     globalConfig.__capacitorConfig?.plugins?.TextInteraction ??
     {}

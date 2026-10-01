@@ -5,10 +5,10 @@ import WebKit
 class TextInteractionTests: XCTestCase {
     func testIsEnabledReflectsState() {
         let implementation = TextInteraction()
-        XCTAssertTrue(implementation.isEnabled())
+        XCTAssertTrue(implementation.isEnabled(webView: nil))
 
         _ = implementation.setEnabled(false, webView: nil)
-        XCTAssertFalse(implementation.isEnabled())
+        XCTAssertFalse(implementation.isEnabled(webView: nil))
     }
 
     func testToggleEnablesTextInteraction() {
