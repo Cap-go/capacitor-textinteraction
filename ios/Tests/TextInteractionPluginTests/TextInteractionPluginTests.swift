@@ -7,7 +7,7 @@ class TextInteractionTests: XCTestCase {
         let implementation = TextInteraction()
         XCTAssertTrue(implementation.isEnabled(webView: nil))
 
-        _ = implementation.setEnabled(false, webView: nil)
+        implementation.setConfiguredEnabled(false)
         XCTAssertFalse(implementation.isEnabled(webView: nil))
     }
 

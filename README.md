@@ -50,8 +50,10 @@ import { TextInteraction } from '@capgo/capacitor-textinteraction';
 
 const { enabled } = await TextInteraction.isEnabled();
 
-// Disable the iOS magnifier lens while the WebView is visible
-await TextInteraction.toggle({ enabled: false });
+if (enabled) {
+  // Disable the iOS magnifier lens while the WebView is visible
+  await TextInteraction.toggle({ enabled: false });
+}
 
 // Remember to re-enable before presenting any text inputs
 await TextInteraction.toggle({ enabled: true });

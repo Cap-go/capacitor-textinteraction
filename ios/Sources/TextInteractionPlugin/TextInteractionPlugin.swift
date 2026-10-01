@@ -23,10 +23,10 @@ public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
     @objc override public func load() {
         locked = getConfig().getBoolean("locked", false)
         let enabled = getConfig().getBoolean("enabled", true)
-        _ = implementation.setEnabled(enabled, webView: nil)
+        implementation.setConfiguredEnabled(enabled)
 
         DispatchQueue.main.async {
-            _ = self.implementation.setEnabled(self.implementation.isEnabled(webView: nil), webView: self.bridge?.webView)
+            _ = self.implementation.applyConfiguredEnabled(webView: self.bridge?.webView)
         }
     }
 
