@@ -18,7 +18,7 @@ Turn text selection on or off in the WebView of your Capacitor iOS app, so it fe
 ## Key features
 
 - **One call**: `toggle()` enables or disables text interaction.
-- **Native feel**: stops long-press text selection when disabled.
+- **Native feel**: stops long-press text selection when disabled. Text inputs stop working too, so turn it back on before text entry.
 - **WebKit based**: uses the WKWebView text interaction setting on iOS.
 - **Reversible**: turn it back on for screens with editable or copyable text.
 - **Platforms**: iOS. iOS only. Android and web are not supported.
