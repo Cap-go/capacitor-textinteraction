@@ -9,7 +9,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "TextInteraction")
 public class TextInteractionPlugin extends Plugin {
 
-    private final String pluginVersion = "8.1.0";
+    private final String pluginVersion = "8.1.1";
 
     private static final String LOCKED_ERROR = "TextInteraction state is locked by config (plugins.TextInteraction.locked)";
 
