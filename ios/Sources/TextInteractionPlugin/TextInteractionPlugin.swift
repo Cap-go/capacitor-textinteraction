@@ -7,7 +7,7 @@ import Capacitor
  */
 @objc(TextInteractionPlugin)
 public class TextInteractionPlugin: CAPPlugin, CAPBridgedPlugin {
-    private let pluginVersion: String = "8.1.4"
+    private let pluginVersion: String = "8.1.5"
     public let identifier = "TextInteractionPlugin"
     public let jsName = "TextInteraction"
     public let pluginMethods: [CAPPluginMethod] = [
